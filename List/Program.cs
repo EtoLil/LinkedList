@@ -83,6 +83,7 @@ namespace Linked_List
                     }
                 }
                 Count--;
+                return true;
             }
 
             return false;
