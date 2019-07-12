@@ -56,31 +56,35 @@ namespace Linked_List
             {
                 if (current.Data.Equals(item))
                 {
-                    if (previous != null)
-                    {
-                        previous.Next = current.Next;
-
-                        if (current.Next == null)//?End list?
-                        {
-                            tail = previous;
-                        }
-                    }
-                    else // if item is first
-                    {
-                        head = head.Next;
-
-                        if (head==null) // if item is first and list size equals 1
-                        {
-                            tail = null;
-                        }
-                    }
-                    Count--;
-                    return true;
+                    break; 
                 }
-
                 previous = current;
                 current = current.Next;
             }
+
+            if (current!=null)
+            {
+                if (previous != null)
+                {
+                    previous.Next = current.Next;
+
+                    if (current.Next == null)//?End list?
+                    {
+                        tail = previous;
+                    }
+                }
+                else // if item is first
+                {
+                    head = head.Next;
+
+                    if (head == null) // if item is first and list size equals 1
+                    {
+                        tail = null;
+                    }
+                }
+                Count--;
+            }
+
             return false;
         }
 
@@ -221,21 +225,23 @@ namespace Linked_List
 
             int item1 = 47;
             int item2 = 8;
+            string nameMethod = "Remove";
 
             if (linkedList.Contains(item1))
             {
                 linkedList.Remove(item1);
+                nameMethod += " "+item1;
             }
 
             if (linkedList.Contains(item2))
             {
                 linkedList.Remove(item2);
-
+                nameMethod += " " + item2;
             }
 
             
 
-            Display("Remove",linkedList);
+            Display(nameMethod,linkedList);
 
 
             #endregion
